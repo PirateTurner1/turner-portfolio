@@ -1,0 +1,90 @@
+html {
+    background-color: black;
+    color: white;
+}
+
+
+/*
+#navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    background-color: var(--seahawk-green);
+    width: 100%;
+    hieght: 40vh;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 1);
+}
+
+#navlist {
+    display: flex;
+    justify-content: space-around;
+    background-color: green;
+    width: 670px;
+    padding: .4rem;
+    font-size: 18px;
+}
+
+li {
+    list-style: none;
+    color: #fff;
+    font-size: 2rem;
+}
+*/
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 3px 2px 5px #0cb6e9;
+    font-family: 'Domine', serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin: 2px 0 10px 0;
+    font-size: 20px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-gap: 2rem;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 6rem;
+}
+
+button {
+    font-size: 20px;
+    padding: 1rem;
+    border-radius: 28px;
+    background-color: bisque;
+    margin: 1rem;
+}
+
+img,
+p {
+    margin: 0px;
+}
+
+.charDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width 100%;
+    border: 1px solid #0000ff;
+}
+
+.picDivs {
+    border: 4px solid darkblue;
+    width: 120px;
+    height: 62%;
+}
