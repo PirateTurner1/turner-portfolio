@@ -1,10 +1,9 @@
 import { planets } from '../Assets/planets.js'
-
 import { species } from '../Assets/species.js'
 
 let mainArea = document.querySelector('main')
 
-let mainArea = document.querySelector('main')
+
 
 planets.forEach(planet => {
     let planetDiv = document.createElement('div')
@@ -28,7 +27,7 @@ planets.forEach(planet => {
     mainArea.appendChild(planetDiv)
 })
 
-function getCharNumber(planet.url) {
+/*function getPlanetNumber(planeturl) {
     let end = charURL.lastIndexOf('/')
     let charID = charURL.substring(end - 2, end)
     if (charID.indexOf('/') !== -1) {
@@ -36,13 +35,8 @@ function getCharNumber(planet.url) {
     } else {
         return charID
     }
-}
+}*/
 
-
-import { planets } from '/JS/assets/planets.js'
-import { species } from '/JS/assets/species.js'
-
-let mainArea = document.querySelector('main')
 
 /* This is a loop function */
 planets.forEach(planet => {
@@ -74,7 +68,7 @@ planets.forEach(planet => {
     mainArea.appendChild(planetDiv)
 });
 
-function getPlanetNumber(planetURL) {
+function getPlanetNum(planetURL) {
     let end = planetURL.lastIndexOf('/')
     let planetID = planetURL.substring(end - 2, end)
     if (planetID.indexOf('/') !== -1) {
