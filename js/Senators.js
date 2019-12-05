@@ -109,70 +109,78 @@ function populateDOM(senator_arr) {
         card.appendChild(cardImage)
         card.appendChild(cardContent(senator))
         container.appendChild(card)
+
+        figureImage.onerror = `this.src='./Assets/images/Doug_Jones_2017.jpg'`
+        figureImage.addEventListener('error', (event) => {
+            let badImage = event.target
+            badImage.src = './Assets/images/Doug_Jones_2017.jpg' //placeholder for un-found images
+
+        })
     })
-}
 
-function cardContent(senator) {
-    let cardContent = document.createElement('div')
-    cardContent.setAttribute('class', 'card-content')
+    function cardContent(senator) {
+        let cardContent = document.createElement('div')
+        cardContent.setAttribute('class', 'card-content')
 
-    let media = document.createElement('div')
-    media.setAttribute('class', 'media')
+        let media = document.createElement('div')
+        media.setAttribute('class', 'media')
 
-    let mediaLeft = document.createElement('div')
-    mediaLeft.setAttribute('class', 'media-left')
+        let mediaLeft = document.createElement('div')
+        mediaLeft.setAttribute('class', 'media-left')
 
-    let figure = document.createElement('figure')
-    figure.setAttribute('class', 'image is-48x48')
+        let figure = document.createElement('figure')
+        figure.setAttribute('class', 'image is-48x48')
 
-    //party affiliation colors 
-    let party = document.createElement("div");
-    party.textContent = senator.party;
-    if (senator.party === "R") {
-        party.setAttribute("class", "republican partyColor");
-    } else if (senator.party === "D") {
-        party.setAttribute("class", "democrat partyColor");
-    } else if (senator.party === "ID") {
-        party.setAttribute("class", "independent partyColor");
+        //party affiliation colors 
+        let party = document.createElement("div");
+        party.textContent = senator.party;
+        if (senator.party === "R") {
+            party.setAttribute("class", "republican partyColor");
+        } else if (senator.party === "D") {
+            party.setAttribute("class", "democrat partyColor");
+        } else if (senator.party === "ID") {
+            party.setAttribute("class", "independent partyColor");
+        }
+
+        let mediaContent = document.createElement('div')
+        mediaContent.setAttribute('class', 'media-content')
+
+        let titleP = document.createElement('p')
+        titleP.setAttribute('class', 'title is-5')
+        titleP.textContent = `${senator.first_name} ${senator.last_name}`
+
+        let subtitleP = document.createElement('p')
+        subtitleP.setAttribute('class', 'subtitle is-6')
+        subtitleP.textContent = `${senator.state_rank}`
+
+        let contentDiv = document.createElement("div")
+        contentDiv.setAttribute("class", "contentDiv")
+        contentDiv.textContent = senator.info
+
+        let contentBreak = document.createElement('p')
+
+        let age = document.createElement("p")
+        age.textContent = `Age: ${calculate_age(new Date(senator.date_of_birth))}` //or ${senator.age} 
+
+        let votes = document.createElement("div")
+        votes.setAttribute("class", "votes-flex")
+        let totalVotes = document.createElement("p")
+        totalVotes.textContent = `Total: ${senator.total_votes}`
+
+        mediaContent.appendChild(titleP)
+        mediaContent.appendChild(subtitleP)
+        figure.appendChild(party)
+        mediaLeft.appendChild(figure)
+        media.appendChild(mediaLeft)
+        media.appendChild(mediaContent)
+        contentDiv.appendChild(contentBreak)
+        contentDiv.appendChild(age)
+        cardContent.appendChild(media)
+        cardContent.appendChild(contentDiv)
+
+        return cardContent
+
     }
-
-    let mediaContent = document.createElement('div')
-    mediaContent.setAttribute('class', 'media-content')
-
-    let titleP = document.createElement('p')
-    titleP.setAttribute('class', 'title is-5')
-    titleP.textContent = `${senator.first_name} ${senator.last_name}`
-
-    let subtitleP = document.createElement('p')
-    subtitleP.setAttribute('class', 'subtitle is-6')
-    subtitleP.textContent = `${senator.state_rank}`
-
-    let contentDiv = document.createElement("div")
-    contentDiv.setAttribute("class", "contentDiv")
-    contentDiv.textContent = senator.info
-
-    let contentBreak = document.createElement('p')
-
-    let age = document.createElement("p")
-    age.textContent = `Age: ${calculate_age(new Date(senator.date_of_birth))}` //or ${senator.age} 
-
-    let votes = document.createElement("div")
-    votes.setAttribute("class", "votes-flex")
-    let totalVotes = document.createElement("p")
-    totalVotes.textContent = `Total: ${senator.total_votes}`
-
-    mediaContent.appendChild(titleP)
-    mediaContent.appendChild(subtitleP)
-    figure.appendChild(party)
-    mediaLeft.appendChild(figure)
-    media.appendChild(mediaLeft)
-    media.appendChild(mediaContent)
-    contentDiv.appendChild(contentBreak)
-    contentDiv.appendChild(age)
-    cardContent.appendChild(media)
-    cardContent.appendChild(contentDiv)
-
-    return cardContent
 }
 
 function calculate_age(dob) {
@@ -181,9 +189,3 @@ function calculate_age(dob) {
 
     return Math.abs(age_dt.getUTCFullYear() - 1970)
 }
-
-/*pic.onerror = `this.src='./Assets/images/Doug_Jones_2017.jpg'`
-pic.addEventListener('error', (event) => {
-    let badImage = event.target
-    badImage.src = './Assets/images/Doug_Jones_2017.jpg' //placeholder for un-found images
-})*/
