@@ -132,6 +132,8 @@ function populateDOM(single_pokemon) {
     });
 }
 
+
+
 //the front of the card area
 function fillCardFront(pokeFront, data) {
     pokeFront.setAttribute('class', 'card_face card_face--front')
@@ -151,6 +153,15 @@ function fillCardFront(pokeFront, data) {
     pic.src = `../Assets/images/${pokeNum}.png`*/
     //pokeDiv.appendChild(pic)
     //pokeDiv.appendChild(name)
+
+    /*pokeFront.addEventListener("mouseover", function() {
+        let type = single_pokemon.types[0].type.name
+        pokeFront.setAttribute("style", `border: 4px solid ${color(type)};`)
+        "style", `border: 1px solid ${color(type)};`
+    })
+    pokeFront.addEventListener("mouseout", function() {
+        pokeFront.setAttribute("style", "border:none;")
+    })*/
 
 }
 

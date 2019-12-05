@@ -79,7 +79,7 @@
         color: white;
         width: 100%;
         height: 100vh;
-        background-color: rgb(90, 90, 110);
+        background-color: rgb(65, 65, 83);
     }
     
     #welcome-section>p {
@@ -89,14 +89,25 @@
         color: var(--seahawk-green);
     }
     
+    figure.myPhoto {
+        /*margin: 0 0 .25em 2%;*/
+        padding: .5em;
+    }
+    
+    figure.myPhoto img {
+        width: 300px;
+        border: 5px solid #01701d;
+        border-radius: 60%;
+    }
+    
     h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
         text-align: center;
         margin-top: 55px;
     }
     
     h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         text-align: center;
         margin-bottom: 4rem;
         padding-top: 4rem;
