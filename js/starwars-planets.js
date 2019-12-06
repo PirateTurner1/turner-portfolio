@@ -93,12 +93,10 @@ for (let i = 0; i < 20; i++) {
         // let planetDiv = document.createElement('div')
         // let name = document.createElement('h1')
         // name.textContent = planets[i].name
-
-
-
 }
 
-planets.slice(20).forEach(planet => {
+//planets.slice(20).forEach(planet => {
+planet.forEach(planet => {
     let planetDiv = document.createElement('div')
     let name = document.createElement('h1')
     let climate = document.createElement('p')

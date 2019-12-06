@@ -80,7 +80,7 @@ function getCharNumber(charURL) {
     }
 }
 
-home.addEventListener('click', function() => {
+home.addEventListener('click', function() {
     document.location.href = 'index.html'
 })
 
