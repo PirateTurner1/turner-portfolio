@@ -129,7 +129,7 @@ function populateDOM(senator_arr) {
         mediaLeft.setAttribute('class', 'media-left')
 
         let figure = document.createElement('figure')
-        figure.setAttribute('class', 'image is-48x48')
+        figure.setAttribute('class', 'image is-54x54')
 
         //party affiliation colors 
         let party = document.createElement("div");

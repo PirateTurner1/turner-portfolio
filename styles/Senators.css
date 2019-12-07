@@ -1,6 +1,8 @@
 html {
     font-family: 'Merriweather Sans', sans-serif;
     box-sizing: border-box;
+    background-image: url("https://cdn.pixabay.com/photo/2016/06/03/16/36/us-flag-1433760_960_720.jpg");
+    background-repeat: y-axis;
 }
 
 header {
@@ -62,4 +64,12 @@ div.keepOpen {
     max-width: 1280px;
     margin: 0 auto;
     margin-bottom: 6rem;
+}
+
+.card-Image {
+    box-shadow: 5px 2px 10px #000;
+}
+
+.card-content {
+    box-shadow: 5px 9px 10px #000;
 }
