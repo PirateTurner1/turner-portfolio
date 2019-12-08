@@ -129,7 +129,7 @@ function populateDOM(senator_arr) {
         mediaLeft.setAttribute('class', 'media-left')
 
         let figure = document.createElement('figure')
-        figure.setAttribute('class', 'image is-54x54')
+        figure.setAttribute('class', 'image is-24x24')
 
         //party affiliation colors 
         let party = document.createElement("div");
@@ -158,14 +158,17 @@ function populateDOM(senator_arr) {
         contentDiv.textContent = senator.info
 
         let contentBreak = document.createElement('p')
+        let state = document.createElement("p")
+        state.textContent = `State: ${senator.state}`
 
         let age = document.createElement("p")
         age.textContent = `Age: ${calculate_age(new Date(senator.date_of_birth))}` //or ${senator.age} 
 
-        let votes = document.createElement("div")
-        votes.setAttribute("class", "votes-flex")
+        let seniority = document.createElement("div")
+        seniority.setAttribute("class", "seniority")
+        seniority.textContent = `Seniority: ${senator.seniority}`
         let totalVotes = document.createElement("p")
-        totalVotes.textContent = `Total: ${senator.total_votes}`
+        totalVotes.textContent = `Total Votes: ${senator.total_votes}`
 
         mediaContent.appendChild(titleP)
         mediaContent.appendChild(subtitleP)
@@ -174,7 +177,10 @@ function populateDOM(senator_arr) {
         media.appendChild(mediaLeft)
         media.appendChild(mediaContent)
         contentDiv.appendChild(contentBreak)
+        contentDiv.appendChild(state)
         contentDiv.appendChild(age)
+        contentDiv.appendChild(seniority)
+        contentDiv.appendChild(totalVotes)
         cardContent.appendChild(media)
         cardContent.appendChild(contentDiv)
 

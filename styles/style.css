@@ -44,7 +44,7 @@ header {
     position: fixed;
     background-color: var(--seahawk-green);
     width: 100%;
-    hieght: 40vh;
+    height: 40vh;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 1);
 }
 
