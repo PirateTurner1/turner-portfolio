@@ -2,6 +2,10 @@ body {
     background-color: grey;
 }
 
+header {
+    display: flex;
+}
+
 #navbar {
     display: flex;
     justify-content: flex-end;
@@ -9,17 +13,28 @@ body {
     position: fixed;
     background-color: var(--seahawk-green);
     width: 100%;
-    hieght: 40vh;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 1);
+    height: 6vh;
 }
 
 #navlist {
     display: flex;
     justify-content: space-around;
     background-color: green;
-    width: 670px;
+    width: 170px;
     padding: .4rem;
     font-size: 18px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 1);
+}
+
+#navlist a {
+    display: block;
+    font-size: 2rem;
+    padding: .5rem;
+}
+
+#navlist a:hover {
+    background-color: #07d16c;
+    padding: .5rem;
 }
 
 li {
@@ -28,11 +43,54 @@ li {
     font-size: 2rem;
 }
 
+a {
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+#welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+    height: 90vh;
+    background-color: rgb(65, 65, 83);
+}
+
+#welcome-section>p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    font-style: italic;
+    color: var(--seahawk-green);
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 55px;
+}
+
+h2 {
+    font-size: 2.6rem;
+    text-align: center;
+    margin-top: 5px;
+}
+
+h4 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 5px;
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 3rem;
-    row-gap: 7rem;
+    grid-gap: 1rem;
+    row-gap: 1rem;
     max-width: 70%;
     margin: 0 auto;
     margin-bottom: 6rem;
@@ -77,17 +135,6 @@ main {
     transform: rotateY(-180deg);
 }
 
-
-/*.card img {
-        width: 80%;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -80%);
-        .card.is-flipped {
-            transform: rotateY(180deg);
-        }*/
-
 .card_face {
     position: absolute;
     width: 100%;
@@ -98,7 +145,7 @@ main {
     font-weight: bold;
     font-size: 40px;
     backface-visibility: hidden;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .card_face--front {
@@ -106,26 +153,36 @@ main {
     font-size: 40px;
     text-align: center;
     background-color: azure;
-    backface-visibility: hidden;
 }
 
 .card_face--back {
-    display: flex;
-    flex-direction: column;
+    /*display: flex;
+    flex-direction: column;*/
     font-size: 20px;
     background-color: skyblue;
     transform: rotateY(-180deg);
-    backface-visibility: hidden;
 }
 
 p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
     margin: 0px;
     font-size: 18px;
-    line-height;
-    ;
+    line-height: 200px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 #new_pokemon {

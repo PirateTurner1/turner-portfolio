@@ -40,13 +40,17 @@ newButton.addEventListener('click', function() {
     } //populateDOM(Piratemon)
 })
 
-async function getHp(pokemonID) {
+function getHp(pokemonID) {
     getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeID}`).then(pokemon => {
         const HP = pokemon.stats.find(Element => {
             return Element.stat.name === "hp"
         })
         return HP.base_stat
     })
+
+    const totalHP = document.querySelector('#totalHP')
+    let totalledHP = pokemon.reduce((accumulator, currentPokemon) => accumulator + parseInt(currentPokemon.stats[5].base_stat, 10), 0)
+    totalHP.textContent = `Total HP: ${totalledHP}`
 }
 
 //reusable async functions to fetch the url data
@@ -137,14 +141,15 @@ function populateDOM(single_pokemon) {
 //the front of the card area
 function fillCardFront(pokeFront, data) {
     pokeFront.setAttribute('class', 'card_face card_face--front')
-    let name = document.createElement('p')
+        //let name = document.createElement('p')
     let pic = document.createElement('img')
     pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
+    let name = document.createElement('h1')
         // this is the actual site or url: https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/001.png
     pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
     let pokeId = document.createElement("p")
-    pokeFront.appendChild(name)
+        //pokeFront.appendChild(name)
     pokeFront.appendChild(pic)
         //let pokeNum = getPokeNumber(data.id)
         //name.textContent = capitalize(`${single_pokemon.name}`)
@@ -169,16 +174,28 @@ function fillCardFront(pokeFront, data) {
 function fillCardBack(pokeBack, data) {
     pokeBack.setAttribute('class', 'card_face card_face--back')
     let pokeOrder = document.createElement('p')
-
-    let types = document.createElement("div")
-    let pokeHP = document.createElement('h5')
-
+    pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
+    pokeOrder.setAttribute('id', 'order')
     let pokeId = document.createElement('p')
     pokeId.textContent = `ID: ${data.id}`
-    pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
-    pokeHP.textContent = data.stats[0].base_stat
-    pokeBack.appendChild(pokeOrder)
-    pokeBack.appendChild(pokeHP)
-    pokeBack.appendChild(types)
+    let name = document.createElement('h4')
+        //let baseXP = document.createElement('p')
+        // baseXP.textContent = `Base XP: ${data.base_experience}`
+        //let HP = document.createElement('p')
+        //HP.textContent = `HP: ${data.stats[5].base_stat}`
+        // let defence = document.createElement('p')
+        // defence.textContent = `Defence: ${data.stats[3].base_stat}`
+        //let types = document.createElement("div")
+        //types.textContent = `type : ${data.types[1].types_stat}`
+        //pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeId)
+    pokeBack.appendChild(name)
+        //pokeBack.appendChild(types)
+        //pokeBack.appendChild(baseXP)
+        // pokeBack.appendChild(HP)
+
+    //pokeBack.appendChild(defence)
+
+    return fillCardBack
+
 }
