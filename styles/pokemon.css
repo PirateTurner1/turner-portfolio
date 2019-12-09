@@ -69,6 +69,9 @@ a {
 }
 
 h1 {
+    display: flex;
+    flex-direction: column;
+    color: rgb(223, 171, 3);
     font-size: 3.5rem;
     text-align: center;
     margin-top: 55px;
@@ -89,12 +92,36 @@ h4 {
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1rem;
+    grid-gap: 4rem;
     row-gap: 1rem;
-    max-width: 70%;
+    background-color: var yellowgreen;
+    width: 100%;
+    max-width: 0 auto;
     margin: 0 auto;
     margin-bottom: 6rem;
+    padding-right: 2rem;
+    padding: 2rem;
 }
+
+.pokeDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pics {
+    width: 100%;
+    height: auto;
+    background-color: var(--grey);
+    box-shadow: 10px 10px 50px;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: transform .2s;
+}
+
+
+/* Animation */
 
 .picDivs {
     display: flex;
@@ -102,24 +129,38 @@ main {
     align-items: center;
     margin-bottom: 50px;
     padding: 20px;
-    width: 165px;
-    height: 200px;
+    width: 180px;
+    height: 310px;
     background-color: azure;
+    transition: transform .2s;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 50px;
 }
 
-.charDiv {
+
+/*.charDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    width: 100%;
+    margin: auto;
+    box-shadow: 10px 10px 50px;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: transform .2s;
+}*/
 
 .scene {
     width: 200px;
-    height: 260px;
-    border: 1px solid #CCC;
+    max-width: 250px;
+    height: 350px;
     margin: 40px 0;
     perspective: 600px;
+    /*display: flex;
     justify-content: center;
+    backface-visibility: hidden;*/
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 .card {
@@ -129,66 +170,120 @@ main {
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
+    backface-visibility: hidden;
 }
 
 .card.is-flipped {
-    transform: rotateY(-180deg);
+    transform: rotateY(180deg);
 }
 
-.card_face {
+.card__face {
     position: absolute;
     width: 100%;
     height: 100%;
     /*line-height: 260px;*/
-    color: white;
+    /*color: white;*/
     text-align: center;
     font-weight: bold;
     font-size: 40px;
     backface-visibility: hidden;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .card_face--front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-weight: bold;
     font-size: 40px;
     text-align: center;
     background-color: azure;
+    backface-visibility: hidden;
+    width: 100%;
+    transform: rotateY(180deg);
+    padding: 0 auto;
+    margin: 0 auto;
 }
 
-.card_face--back {
-    /*display: flex;
-    flex-direction: column;*/
+.card__face--back {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 20px;
     background-color: skyblue;
-    transform: rotateY(-180deg);
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
 }
 
 p {
-    display: block;
+    /*display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-end: 0px;*/
     position: absolute;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    bottom: 10px;
+    left: 10px;
     margin: 0px;
     font-size: 18px;
     line-height: 200px;
 }
 
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
+
+/*this is for new button to add pokemon*/
 
 #new_pokemon {
     width: 140px;
     height: 100px;
+    color: white;
     background-color: #ffcb05;
     font-size: 1.5rem;
     margin: 20px;
+    border-radius: 10px;
 }
+
+
+/* sorting buttons*/
+
+
+/*
+nav button {
+    background-color: rgb(52, 250, 2);
+    color: black;
+    font-size: 1.5rem;
+    margin: 2rem 1rem 2rem 0;
+    width: 7rem;
+    height: 3rem;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 12px 9px 10px rgba(34, 34, 34, 0.808);
+    transition: transform .2s;
+}
+
+nav button:hover {
+    transform: scale(1.1);
+}
+
+#poison:hover {
+    background-color: purple;
+}
+
+#grass:hover {
+    background-color: green;
+}
+
+#fire:hover {
+    background-color: orangered;
+}
+
+#water:hover {
+    background-color: blue;
+}
+
+#electric:hover {
+    background-color: rgb(173, 173, 2);
+}
+
+#all:hover {
+    background-color: red;
+}*/

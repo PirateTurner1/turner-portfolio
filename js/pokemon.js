@@ -40,17 +40,15 @@ newButton.addEventListener('click', function() {
     } //populateDOM(Piratemon)
 })
 
-function getHp(pokemonID) {
-    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeID}`).then(pokemon => {
-        const HP = pokemon.stats.find(Element => {
-            return Element.stat.name === "hp"
+async function getHP(pokemonID) {
+    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`)
+        .then(pokemon => {
+            const HP = pokemon.stats.find(element => {
+                return element.stats.name === "hp"
+            })
+            return HP.base_stat
         })
-        return HP.base_stat
-    })
 
-    const totalHP = document.querySelector('#totalHP')
-    let totalledHP = pokemon.reduce((accumulator, currentPokemon) => accumulator + parseInt(currentPokemon.stats[5].base_stat, 10), 0)
-    totalHP.textContent = `Total HP: ${totalledHP}`
 }
 
 //reusable async functions to fetch the url data
@@ -58,8 +56,9 @@ async function getPokemonData(url) {
     try {
         const response = await fetch(url) //getPokemonData('https://pokeapi.co/api/v2/pokemon/')
         const data = await response.json()
+        const HP = await getHP(data.id)
         data.hp = HP
-        return data;
+        return data
     } catch (error) {
         console.error(error)
     }
@@ -72,12 +71,12 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
             getAPIData(pokemon.url)
                 .then(pokeData => {
                     populateDOM(pokeData)
+                        //pokeData = AllData
+                        //renderAllPokemon(pokeData)
                         // populateDOM(Piratemon)
                 })
         }
     })
-
-
 
 //A function to sort out number of pokemon
 /*function getPokeNumber(charURL) {
@@ -109,12 +108,10 @@ let mainArea = document.querySelector('main')
 //populating the DOM and filling in the content
 function populateDOM(single_pokemon) {
     let pokeScene = document.createElement('div')
-    let pokeDiv = document.createElement('div')
+        //let pokeDiv = document.createElement('div')
     let pokeCard = document.createElement('div')
     let pokeFront = document.createElement('div')
     let pokeBack = document.createElement('div')
-        /* //
-         //let height = document.createElement('p')*/
 
     fillCardFront(pokeFront, single_pokemon)
     fillCardBack(pokeBack, single_pokemon)
@@ -122,7 +119,6 @@ function populateDOM(single_pokemon) {
     pokeScene.setAttribute('class', 'scene')
     pokeCard.setAttribute('class', 'card')
         /*//pokeDiv.setAttribute('class', 'CharDivs')*/
-
     pokeCard.appendChild(pokeFront)
     pokeCard.appendChild(pokeBack)
     pokeScene.appendChild(pokeCard)
@@ -136,66 +132,81 @@ function populateDOM(single_pokemon) {
     });
 }
 
-
-
 //the front of the card area
 function fillCardFront(pokeFront, data) {
-    pokeFront.setAttribute('class', 'card_face card_face--front')
-        //let name = document.createElement('p')
+    pokeFront.setAttribute('class', 'card__face card__face--front')
+    let name = document.createElement('p')
     let pic = document.createElement('img')
     pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
-    let name = document.createElement('h1')
         // this is the actual site or url: https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/001.png
     pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
-    let pokeId = document.createElement("p")
-        //pokeFront.appendChild(name)
+        //let pokeId = document.createElement("p")
+    pokeFront.appendChild(name)
     pokeFront.appendChild(pic)
-        //let pokeNum = getPokeNumber(data.id)
-        //name.textContent = capitalize(`${single_pokemon.name}`)
+
+    //name.textContent = capitalize(`${single_pokemon.name}`)
 
     /*name.textContent = `${data.name} height: ${data.height}`
     pic.src = `../Assets/images/${pokeNum}.png`*/
-    //pokeDiv.appendChild(pic)
-    //pokeDiv.appendChild(name)
 
-    /*pokeFront.addEventListener("mouseover", function() {
-        let type = single_pokemon.types[0].type.name
-        pokeFront.setAttribute("style", `border: 4px solid ${color(type)};`)
-        "style", `border: 1px solid ${color(type)};`
-    })
-    pokeFront.addEventListener("mouseout", function() {
-        pokeFront.setAttribute("style", "border:none;")
-    })*/
 
 }
 
 //the back of the card area
 function fillCardBack(pokeBack, data) {
-    pokeBack.setAttribute('class', 'card_face card_face--back')
+    pokeBack.setAttribute('class', 'card__face card__face--back')
     let pokeOrder = document.createElement('p')
-    pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
-    pokeOrder.setAttribute('id', 'order')
+    let pokeHP = document.createElement('h5')
+    let types = document.createElement("div")
     let pokeId = document.createElement('p')
     pokeId.textContent = `ID: ${data.id}`
-    let name = document.createElement('h4')
-        //let baseXP = document.createElement('p')
-        // baseXP.textContent = `Base XP: ${data.base_experience}`
-        //let HP = document.createElement('p')
-        //HP.textContent = `HP: ${data.stats[5].base_stat}`
-        // let defence = document.createElement('p')
-        // defence.textContent = `Defence: ${data.stats[3].base_stat}`
-        //let types = document.createElement("div")
-        //types.textContent = `type : ${data.types[1].types_stat}`
-        //pokeBack.appendChild(pokeOrder)
+    pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
+    pokeHP.textContent = data.stats[0].base_stat
+    pokeBack.appendChild(pokeOrder)
+    pokeBack.appendChild(pokeHP)
+    pokeBack.appendChild(types)
     pokeBack.appendChild(pokeId)
-    pokeBack.appendChild(name)
-        //pokeBack.appendChild(types)
-        //pokeBack.appendChild(baseXP)
-        // pokeBack.appendChild(HP)
-
-    //pokeBack.appendChild(defence)
-
-    return fillCardBack
-
 }
+
+/*
+const poisonButton = document.querySelector('#poison')
+poisonButton.addEventListener('click', function() {
+    renderAllPokemonWithFilter('poison')
+})
+const grassButton = document.querySelector('#grass')
+grassButton.addEventListener('click', function() {
+    renderAllPokemonWithFilter('grass')
+})
+const fireButton = document.querySelector('#fire')
+fireButton.addEventListener('click', function() {
+    renderAllPokemonWithFilter('fire')
+})
+const waterButton = document.querySelector('#water')
+waterButton.addEventListener('click', function() {
+    renderAllPokemonWithFilter('water')
+})
+const electricButton = document.querySelector('#electric')
+electricButton.addEventListener('click', function() {
+    renderAllPokemonWithFilter('electric')
+})
+const allButton = document.querySelector('#all')
+allButton.addEventListener('click', function() {
+    renderAllPokemonWithFilter('all')
+})
+
+function renderAllPokemonWithFilter(pokeTypes) {
+    if (pokeTypes === 'all') {
+        renderAllPokemon(pokeData)
+    } else {
+        let matchedPokemon = pokeData.filter(pokemon => {
+            for (type of pokemon.types) {
+                if (type.type.name === pokeType) {
+                    return true
+                }
+            }
+            return false
+        });
+        renderAllPokemon(matchedPokemon)
+    }
+}*/
