@@ -9,36 +9,15 @@ const otherCharacters = people.filter(
 let mainArea = document.querySelector('main')
 let nav = document.querySelector('nav')
 let home = document.createElement('button')
-    /*
-    let filmBtn = document.createElement('button')
-    let peopleBtn = document.createElement('button')
-    let planetsBtn = document.createElement('button')
-    let speciesBtn = document.createElement('button')
-    let starshipsBtn = document.createElement('button')
-    let vehiclesBtn = document.createElement('button')
-    */
+
 
 home.textContent = 'HOME'
-    /*
-    filmBtn.textContent = 'FILMS'
-    peopleBtn.textContent = 'PEOPLE'
-    planetsBtn.textContent = 'PLANETS'
-    speciesBtn.textContent = 'SPECIES'
-    starshipsBtn.textContent = 'STARSHIPS'
-    vehiclesBtn.textContent = 'VEHICLES'
-    */
+
 
 //let filterArea = document.querySelector(".filters")
 
 console.log('i am javaScript running in your page!')
-    /*
-        const justNames = people.map(person => {
-            return {
-                name: person.name,
-                foo: 'bar',
-                config: [{ style: "something" }]
-            }
-        }) console.log(justNames)*/
+
 
 //populating the DOM
 function populateDOM(someArray) {
