@@ -1,56 +1,60 @@
-header {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-h1 {
-    text-align: center;
-    text-shadow: 3px 2px 5px #0cb6e9;
-    font-family: 'Domine', serif;
-    font-size: 36px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    margin: 2px 0 10px 0;
-    font-size: 20px;
-}
-
-main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    grid-gap: 2rem;
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    margin-bottom: 6rem;
-}
-
-button {
-    font-size: 1rem;
-    padding: 10px;
-    border-radius: 10% / 50%;
-    background-color: bisque;
-    margin-left: 20px;
-}
-
-img,
-p {
-    margin: 0px;
-}
-
-.charDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width 100%;
-    border: 1px solid #0000ff;
-}
-
-.picDivs {
-    border: 4px solid darkblue;
-    width: 120px;
-    height: 170px;
-}
+    header {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    
+    h1 {
+        text-align: center;
+        text-shadow: 3px 2px 5px #0cb6e9;
+        font-family: 'Domine', serif;
+        font-size: 36px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        margin: 2px 0 10px 0;
+        font-size: 20px;
+    }
+    
+    main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        grid-gap: 2rem;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        margin-bottom: 6rem;
+    }
+    
+    button {
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+        padding: 1rem;
+        border-radius: 28px;
+        background-color: rgb(253, 243, 154);
+        margin: 1rem;
+        margin-top: 150px;
+    }
+    
+    img,
+    p {
+        margin: 0 auto;
+    }
+    
+    .planetDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width 200px;
+        height: 100%;
+        border: 1px solid #0000ff;
+    }
+    
+    .planetPic {
+        border: 5px solid darkblue;
+        width: 176px;
+        height: 177px;
+    }
