@@ -44,7 +44,7 @@ header {
     position: fixed;
     background-color: var(--seahawk-green);
     width: 100%;
-    height: 7vh;
+    height: 8vh;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 1);
 }
 
@@ -150,7 +150,7 @@ h3 {
 
 .bio-details {
     background-color: black;
-    height: 60vh;
+    height: 90vh;
 }
 
 #name {
@@ -190,7 +190,7 @@ span {
 
 #projects {
     display: grid;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     flex-flow: wrap;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -210,7 +210,7 @@ span {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1rem;
     width: 100%;
-    max-width: 1280px;
+    /*max-width: 1280px;*/
     margin: 1.5rem;
     margin-bottom: 6rem;
 }
@@ -219,8 +219,8 @@ span {
     display: grid;
     flex-direction: row;
     grid-gap: 1rem;
-    height: 395px;
-    width: 280px;
+    height: 300px;
+    width: 230px;
     margin-top: 30px;
     padding: 0 auto;
 }
@@ -232,11 +232,11 @@ span {
 .project-title {
     color: #fff;
     border: 1px solid white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-align: center;
     background: rgba(0, 0, 0, 0.596);
     position: relative;
-    width: 250px;
+    width: 200px;
     bottom: 50px;
     padding: 15px;
 }
