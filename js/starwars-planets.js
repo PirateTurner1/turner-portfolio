@@ -1,6 +1,6 @@
 import { films } from '../Assets/films.js'
 import { planets } from '../Assets/planets.js'
-import { starships } from '../Assets/starships.js'
+//import { starships } from '../Assets/starships.js'
 
 
 
@@ -14,40 +14,47 @@ let nav = document.querySelector('nav')
 let home = document.createElement('button')
 
 // populating the DOM area
-/*function populateDOM(someArray) {}
-    someArray.forEach((planet) => {}
-*/
+function populateDOM(someArray) {
+    someArray.forEach((planet) => { //planets.forEach((planet)=>{})
+        let planetDiv = document.createElement('div')
+        let pic = document.createElement('img')
+        let name = document.createElement('h3')
+        let terrain = document.createElement('p')
+        let climate = document.createElement('p')
+        let population = document.createElement('p')
+        let planetNum = getPlanetNum(planet.url)
 
-planets.forEach((planet) => {
-    let planetDiv = document.createElement('div')
-    let pic = document.createElement('img')
-    let name = document.createElement('h1')
-    let terrain = document.createElement('p')
-    let climate = document.createElement('p')
-    let population = document.createElement('p')
-    let planetNum = getPlanetNum(planet.url)
+        name.textContent = planet.name
+        terrain.textContent = `Terrain: ${planet.terrain}`
+        climate.textContent = `Climate: ${planet.climate}`
+        population.textContent = `pop: ${planet.population}`
 
-    planetDiv.setAttribute('class', 'planetDiv')
-    name.setAttribute('class', 'planetName')
-    pic.setAttribute('class', 'planetPic')
-    name.textContent = planet.name
-    pic.src = `https://starwars-visualguide.com/assets/img/planets/${planetNum}.jpg`
+        planetDiv.setAttribute('class', 'planetDiv')
+        name.setAttribute('class', 'planetName')
+        pic.setAttribute('class', 'planetPic')
+        name.textContent = planet.name
+        pic.src = `https://starwars-visualguide.com/assets/img/planets/${planetNum}.jpg`
+        terrain.setAttribute('class', 'content')
+        climate.setAttribute('class', 'content')
+        population.setAttribute('class', 'content')
 
-    mainArea.appendChild(planetDiv)
-    planetDiv.appendChild(name)
-    planetDiv.appendChild(terrain)
-    planetDiv.appendChild(climate)
-    planetDiv.appendChild(population)
-    planetDiv.appendChild(pic)
+        planetDiv.appendChild(name)
+        planetDiv.appendChild(terrain)
+        planetDiv.appendChild(climate)
+        planetDiv.appendChild(population)
+        planetDiv.appendChild(pic)
+        mainArea.appendChild(planetDiv)
 
+        //figureImage.onerror = `this.src='./Assets/images/StarwarsPlanet.jpg'`
+        pic.addEventListener('error', (event) => {
+            let badImage = event.target
+            badImage.src = './Assets/images/starWarsPlaceHolder.jpg' //placeholder for un-found images
 
-    //figureImage.onerror = `this.src='./Assets/images/StarwarsPlanet.jpg'`
-    pic.addEventListener('error', (event) => {
-        let badImage = event.target
-        badImage.src = './Assets/images/starWarsPlaceHolder.jpg' //placeholder for un-found images
-
+        })
     })
-})
+}
+
+
 
 function getPlanetNum(planetURL) {
     let end = planetURL.lastIndexOf('/')
@@ -60,17 +67,13 @@ function getPlanetNum(planetURL) {
 }
 console.log(planets)
 
-
-
 /* This is a loop function */
 
 //let planetsButton = document.createElement('button')
 let planetsButton = document.querySelector('#planets')
 planetsButton.textContent = 'PLANETS'
 planetsButton.setAttribute('class', 'planets')
-
-
-//planets button option...
+    //planets button option...
 planetsButton.addEventListener('click', () => {
         mainArea.textContent = ''
         deleteNode()
@@ -81,26 +84,39 @@ planetsButton.addEventListener('click', () => {
             let matchedDiv = allDivs.find((oneDiv) => {
                 return oneDiv.firstChild.textContent === planet.name
             })
-            matchedDiv.setAttribute("style", "display: block;")
+            if (matchedDiv.setAttribute('style') === "display: none;") {
+                films()
+                console.log('all planets are gone')
+            } else films.forEach(film => {
+                let matchedDiv = allDivs.find(oneDiv => {
+                    return oneDiv.firstChild.textContent === films.name;
+                })
+                matchedDiv.setAttribute("style", "display: revert")
+            })
         })
     })*/
 
+
 //populating the DOM
-films.forEach(function(film) {
-    let filmDiv = document.createElement('div')
-        //let filmEpisode_id = document.createElement('h1')
-    let filmTitle = document.createElement('h3')
-    let filmCrawl = document.createElement('p')
+function populatedom(someArray) {
+    someArray.forEach((film) => {
+        //films.forEach(function(film) {
+        let filmDiv = document.createElement('div')
+            //let filmEpisode_id = document.createElement('h1')
+        let filmTitle = document.createElement('h3')
+        let filmCrawl = document.createElement('p')
 
-    filmTitle.textContent = film.title
-    filmCrawl.textContent = film.opening_crawl
-        //filmEpisode_id.textContent = `Episode: ${films.episode_id}`
-
-    //filmDiv.appendChild(filmEpisode_id)
-    filmDiv.appendChild(filmTitle)
-    filmDiv.appendChild(filmCrawl)
-    mainArea.appendChild(filmDiv)
-})
+        filmTitle.textContent = film.title
+        filmCrawl.textContent = film.opening_crawl
+            //filmEpisode_id.textContent = `Episode: ${films.episode_id}`
+        filmTitle.setAttribute('class', 'titles')
+        filmCrawl.setAttribute('class', 'par')
+            //filmDiv.appendChild(filmEpisode_id)
+        filmDiv.appendChild(filmTitle)
+        filmDiv.appendChild(filmCrawl)
+        mainArea.appendChild(filmDiv)
+    })
+}
 
 //let filmsButton = document.createElement('button')
 let filmsButton = document.querySelector('#films')
@@ -109,11 +125,45 @@ filmsButton.setAttribute('class', 'buttons')
 
 //films button
 filmsButton.addEventListener('click', () => {
-    mainArea.textContent = ''
-        //filterArea.textContent = ""
-    deleteNode()
-    populateDOM(films)
+        mainArea.textContent = ''
+            //filterArea.textContent = ""
+        deleteNode()
+        populatedom(films)
+    })
+    /*filmsButton.addEventListener('click', () => {
+        films.forEach(film => {
+            let matchedDiv = allDivs.find((oneDiv) => {
+                return oneDiv.firstChild.textContent === films.title
+            })
+
+            if (matchedDiv.setAttribute('style') === "display: none;") {
+                planets()
+                console.log('?what films?')
+            } else planets.forEach(planet => {
+                let matchedDiv = allDivs.find(oneDiv => {
+                    return oneDiv.firstChild.textContent === planets.name;
+                })
+                matchedDiv.setAttribute("style", "display: revert")
+            })
+        })
+    })*/
+
+home.addEventListener('click', function() {
+    document.location.href = 'index.html'
 })
+
+const allDivs = Array.from(document.querySelectorAll('div'))
+const mainHeader = document.querySelector('header')
+
+function deleteNode() {
+    while (mainArea.firstChild) {
+        mainArea.removeChild(mainArea.firstChild)
+    }
+    mainHeader.appendChild(planetsButton)
+    mainHeader.appendChild(filmsButton)
+        //mainHeader.appendChild(starshipsButton)
+}
+
 
 /*
 starships.forEach(starship => {
@@ -165,7 +215,7 @@ starshipsButton.textContent = 'STARSHIPS'
 starshipsButton.setAttribute('class', 'buttons')
     //mainHeader.appendChild(starshipsButton)
 
-//species button
+//starships button
 
 starshipsButton.addEventListener('click', () => {
     mainArea.textContent = ''
@@ -173,20 +223,3 @@ starshipsButton.addEventListener('click', () => {
     deleteNode()
     populateDOM(starships)
 })*/
-
-home.addEventListener('click', function() {
-    document.location.href = 'index.html'
-})
-
-const allDivs = Array.from(document.querySelectorAll('div'))
-const mainHeader = document.querySelector('header')
-
-function deleteNode() {
-    while (mainArea.firstChild) {
-        mainArea.removeChild(mainArea.firstChild)
-    }
-
-    mainHeader.appendChild(planetsButton)
-    mainHeader.appendChild(filmsButton)
-    mainHeader.appendChild(starshipsButton)
-}

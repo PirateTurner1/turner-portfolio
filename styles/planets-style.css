@@ -11,26 +11,12 @@ header {
     margin-bottom: 2rem;
 }
 
-h1 {
-    text-align: center;
-    text-shadow: 3px 2px 5px #0cb6e9;
-    font-family: 'Domine', serif;
-    font-size: 36px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    margin: 2px 0 10px 0;
-    font-size: 20px;
-}
-
 #navbar {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     position: fixed;
-    background-color: var(--seahawk-green);
+    /*background-color: var(--seahawk-green);*/
     width: 100%;
     height: 8vh;
     /*box-shadow: 0 2px 0 rgba(0, 0, 0, 1);*/
@@ -81,7 +67,7 @@ div.keepOpen {
     width: 40%;
     height: 20vh;
     /*background: rgba(194, 175, 175, 0.212);*/
-    margin-bottom: 35px;
+    margin-bottom: 45px;
 }
 
 h1 {
@@ -99,15 +85,15 @@ h2 {
     font-size: 2.3rem;
     margin: 2px 0 10px 0;
     letter-spacing: 2px;
-    color: rgb(3, 3, 248);
-    text-shadow: 3px 2px 5px #b3ecfa;
+    color: rgb(177, 177, 253);
+    /*text-shadow: 3px 2px 5px #b3ecfa;*/
     margin-left: 50px;
 }
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-gap: 3rem;
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
@@ -130,6 +116,63 @@ p {
     margin: 0 auto;
 }
 
+.planetDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    max-height: 100%;
+    border: 1px solid #0000ff;
+    margin-bottom: 30px;
+}
+
+.planetPic {
+    border: 5px solid darkblue;
+    width: 200px;
+    height: 200px;
+}
+
+.planetName {
+    text-align: center;
+    color: rgb(3, 130, 248);
+    /*text-shadow: 3px 2px 5px #f7f8f8;*/
+    font-family: 'Domine', serif;
+    font-size: 2.5rem;
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+
+.content {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+    background-color: rgb(0, 0, 0);
+}
+
+.titles {
+    text-align: center;
+    color: rgb(248, 191, 3);
+    /*text-shadow: 3px 2px 5px #f7f8f8;*/
+    font-family: 'Domine', serif;
+    font-size: 2.5rem;
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+
+.par {
+    width: 270px;
+    font-size: 1rem;
+    color: #fce78d;
+    background-color: black;
+}
+
+
+/*.photo {
+    border: 5px solid darkblue;
+    width: 176px;
+    height: 177px;
+}
+
 p {
     width: 200px;
     margin-right: 20px;
@@ -140,25 +183,4 @@ p {
     font-size: 36px;
     letter-spacing: 2px;
     margin-bottom: 20px;
-}
-
-.planetDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width 200px;
-    height: 100%;
-    border: 1px solid #0000ff;
-}
-
-.planetPic {
-    border: 5px solid darkblue;
-    width: 176px;
-    height: 177px;
-}
-
-.photo {
-    border: 5px solid darkblue;
-    width: 176px;
-    height: 177px;
-}
+}*/

@@ -94,7 +94,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 4rem;
     row-gap: 1rem;
-    background-color: var yellowgreen;
+    background-color: yellowgreen;
     width: 100%;
     max-width: 0 auto;
     margin: 0 auto;
@@ -113,7 +113,7 @@ main {
 .pics {
     width: 100%;
     height: auto;
-    background-color: var(--grey);
+    background-color: grey;
     box-shadow: 10px 10px 50px;
     padding: 1rem;
     border-radius: 1rem;
@@ -200,7 +200,6 @@ main {
     background-color: azure;
     backface-visibility: hidden;
     width: 100%;
-    transform: rotateY(180deg);
     padding: 0 auto;
     margin: 0 auto;
 }
